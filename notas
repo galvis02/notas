@@ -1,0 +1,50 @@
+package notas;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author MALLI
+ */
+public class Notas {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+
+        
+        double[][] notas = new double[5][4];
+
+        
+        for (int i = 0; i < notas.length; i++) {
+            System.out.println("Ingrese las notas para el alumno, ejemplo (3,0) " + (i + 1) + ":");
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Nota " + (j + 1) + ": ");
+                notas[i][j] = scanner.nextDouble();
+            }
+        }
+
+        
+        for (int i = 0; i < notas.length; i++) {
+            double suma = 0;
+            for (int j = 0; j < 3; j++) {  
+                suma += notas[i][j];
+            }
+            notas[i][3] = suma / 3;  
+        }
+
+       
+        System.out.println("\nNotas y promedios de los alumnos:");
+        for (int i = 0; i < notas.length; i++) {
+            System.out.print("Alumno " + (i + 1) + " - Notas: ");
+            for (int j = 0; j < 3; j++) {  
+                System.out.print(notas[i][j] + " ");
+            }
+            System.out.println(" | Promedio: " + notas[i][3]);  
+        }
+
+        scanner.close();
+    }
+}
